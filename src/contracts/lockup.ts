@@ -27,7 +27,7 @@ export class Lockup extends SmartContract {
     public redeem(sig: Sig, pubkey: PubKey) {
         assert(this.ctx.locktime < 500000000, 'must use blockHeight locktime')
         assert(
-            this.ctx.locktime > this.lockUntilHeight,
+            this.ctx.locktime >= this.lockUntilHeight,
             'lockUntilHeight not reached'
         )
         assert(
